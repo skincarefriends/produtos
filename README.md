@@ -12,11 +12,22 @@ Vitrine de skincare com painel admin (cadastro/edição/remoção de produtos), 
 
 ## Rodar localmente
 
+**Opção A — Node puro (precisa ter um Mongo rodando):**
+
 ```bash
 npm install
-# copie .env.example para .env e ajuste MONGODB_URI / SESSION_SECRET
+cp .env.example .env   # ajuste MONGODB_URI / SESSION_SECRET
 npm start
 ```
+
+**Opção B — Docker Compose (sobe app + Mongo juntos):**
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+O compose sobrescreve `MONGODB_URI` pra apontar pro serviço `mongo` interno; o volume `mongo_data` persiste os dados.
 
 Acesse:
 
@@ -39,13 +50,35 @@ Acesse:
 | `CLOUDINARY_API_SECRET` | API secret                                                     |
 | `CLOUDINARY_FOLDER`     | Pasta destino (default `skincarefriends`)                      |
 
-## Deploy no Railway
+## Deploy no Railway (IaC)
 
-1. `railway init` (ou conecte o repo no dashboard).
-2. Adicione o plugin **MongoDB** — a var `MONGO_URL` aparece automaticamente. Crie uma variável `MONGODB_URI` com o mesmo valor (`${{ MongoDB.MONGO_URL }}`).
-3. Copie todas as variáveis de `.env.example` para o serviço no Railway (Variables).
-4. Railway detecta `railway.json` / `Procfile` e roda `node server.js`.
-5. Healthcheck em `/healthz`.
+**Recomendado — via script (provisiona tudo do zero):**
+
+```bash
+# 1. Instale e logue a CLI
+npm i -g @railway/cli   # ou: curl -fsSL https://railway.com/install.sh | sh
+railway login
+
+# 2. Garanta que .env está preenchido (Cloudinary + ADMIN_* + SESSION_SECRET)
+
+# 3. Rode o setup
+bash scripts/railway-setup.sh [nome-do-projeto]
+```
+
+O script faz:
+
+1. `railway init` — cria o projeto.
+2. `railway add --database mongo` — provisiona o plugin MongoDB.
+3. Lê o `.env` linha a linha e seta cada variável no serviço web, trocando `MONGODB_URI` por uma referência ao plugin (`${{ MongoDB.MONGO_URL }}`), então a URI fica sempre sincronizada.
+4. `railway up --detach` — build + deploy.
+5. `railway domain` — gera a URL pública.
+
+**Manual (dashboard):**
+
+1. `New Project → Deploy from GitHub` com este repo.
+2. `+ New → Database → MongoDB`.
+3. Na aba **Variables** do serviço web, cole tudo do `.env` e substitua `MONGODB_URI` por `${{ MongoDB.MONGO_URL }}`.
+4. Railway detecta `railway.json` e `Procfile` automaticamente. Healthcheck em `/healthz`.
 
 ## Rotas
 
@@ -76,6 +109,11 @@ Admin (sessão obrigatória):
 │   ├── index.html     # vitrine
 │   ├── login.html
 │   └── admin.html
+├── scripts/
+│   └── railway-setup.sh  # IaC: provisiona projeto + mongo + envs no Railway
+├── Dockerfile
+├── docker-compose.yml    # app + mongo para dev local
+├── .dockerignore
 ├── .env / .env.example
 ├── Procfile
 └── railway.json
