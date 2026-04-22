@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow & Care | Premium Skincare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --perola: #FAFAFA;
+            --salmao: #FFB09C;
+            --quartz: #F7D1CD;
+            --rosegold: #E2A9A1;
+            --apple-black: #1D1D1F;
+            --apple-gray: #86868B;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--perola); color: var(--apple-black); }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(250, 250, 250, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: white; }
+        .product-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+        .btn-rosegold { background-color: var(--rosegold); color: white; transition: opacity 0.3s ease; }
+        .btn-rosegold:hover { opacity: 0.9; }
+        .text-rosegold { color: var(--rosegold); }
+        .bg-quartz-soft { background-color: var(--quartz); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Header with Glassmorphism -->
+    <header class="glass sticky top-0 z-50 py-6 px-8 flex justify-between items-center border-b border-gray-100">
+        <div class="text-2xl font-bold tracking-tight text-rosegold">G&C</div>
+        <nav class="hidden md:flex space-x-12 text-[11px] font-medium tracking-[0.2em] text-gray-500">
+            <a href="#" class="hover:text-rosegold transition">ESSENCIAIS</a>
+            <a href="#" class="hover:text-rosegold transition">COLEÇÕES</a>
+            <a href="#" class="hover:text-rosegold transition">SOBRE</a>
+            <a href="#" class="hover:text-rosegold transition">CONTATO</a>
+        </nav>
+        <div class="flex items-center space-x-6">
+            <button class="text-gray-400 hover:text-rosegold transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+            <button class="text-gray-400 hover:text-rosegold transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 md:py-32 flex flex-col items-center text-center">
+        <span class="text-rosegold font-semibold tracking-[0.3em] text-[10px] mb-6 uppercase">Pele Radiante por Natureza</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.1] text-apple-black">A nova era do <br><span class="italic text-rosegold">autocuidado</span>.</h1>
+        <p class="text-apple-gray text-lg md:text-xl max-w-2xl mb-12 leading-relaxed font-light">
+            Inspirada na suavidade das pétalas e no brilho do entardecer. 
+            Uma curadoria minimalista para quem busca o extraordinário.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+            <a href="#loja" class="btn-rosegold px-12 py-4 rounded-full text-xs font-bold tracking-widest uppercase">Comprar Agora</a>
+            <a href="#" class="px-12 py-4 rounded-full text-xs font-bold tracking-widest uppercase border border-gray-200 text-apple-black hover:bg-white transition">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- Large Visual Banner -->
+    <section class="px-6 mb-32">
+        <div class="max-w-7xl mx-auto h-[600px] rounded-[3rem] overflow-hidden bg-quartz-soft relative group">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=90')] bg-cover bg-center mix-blend-multiply opacity-40 group-hover:scale-105 transition duration-[2s]"></div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <h2 class="text-white text-8xl md:text-[12rem] font-bold opacity-20 select-none">GLOW</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <main id="loja" class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
+            <div class="max-w-xl">
+                <h2 class="text-4xl md:text-5xl mb-6 leading-tight">Nossa seleção de <br><span class="text-rosegold">favoritos</span>.</h2>
+                <p class="text-apple-gray font-light">Fórmulas limpas, embalagens sustentáveis e resultados visíveis. Projetado para se adaptar ao seu estilo de vida.</p>
+            </div>
+            <a href="#" class="text-rosegold text-xs font-bold tracking-widest uppercase border-b border-rosegold pb-1 mt-8 md:mt-0 hover:opacity-70 transition">Ver todos os produtos</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Card 1 -->
+            <a href="#" class="product-card rounded-[2.5rem] p-4 group">
+                <div class="aspect-[1/1.2] rounded-[2rem] overflow-hidden bg-[#F2F2F7] relative mb-8">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sérum C+" class="w-full h-full object-cover group-hover:scale-110 transition duration-[1s]">
+                    <div class="absolute top-6 left-6 px-4 py-1.5 glass rounded-full text-[10px] font-bold tracking-widest text-rosegold">NEW</div>
+                </div>
+                <div class="px-4 pb-4">
+                    <h3 class="text-2xl mb-2">Sérum Revitalizante C+</h3>
+                    <p class="text-apple-gray text-sm mb-6 font-light leading-relaxed">Pele luminosa e protegida contra os danos urbanos.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-medium text-apple-black">R$ 129,00</span>
+                        <div class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-rosegold group-hover:border-rosegold transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300 group-hover:text-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="#" class="product-card rounded-[2.5rem] p-4 group">
+                <div class="aspect-[1/1.2] rounded-[2rem] overflow-hidden bg-[#F2F2F7] relative mb-8">
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Creme Noite" class="w-full h-full object-cover group-hover:scale-110 transition duration-[1s]">
+                </div>
+                <div class="px-4 pb-4">
+                    <h3 class="text-2xl mb-2">Hidratante Profundo</h3>
+                    <p class="text-apple-gray text-sm mb-6 font-light leading-relaxed">Uma barreira de hidratação invisível e sedosa.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-medium text-apple-black">R$ 89,00</span>
+                        <div class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-rosegold group-hover:border-rosegold transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300 group-hover:text-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="#" class="product-card rounded-[2.5rem] p-4 group">
+                <div class="aspect-[1/1.2] rounded-[2rem] overflow-hidden bg-[#F2F2F7] relative mb-8">
+                    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Tônico" class="w-full h-full object-cover group-hover:scale-110 transition duration-[1s]">
+                    <div class="absolute top-6 left-6 px-4 py-1.5 glass rounded-full text-[10px] font-bold tracking-widest text-rosegold">BESTSELLER</div>
+                </div>
+                <div class="px-4 pb-4">
+                    <h3 class="text-2xl mb-2">Tônico Purificante</h3>
+                    <p class="text-apple-gray text-sm mb-6 font-light leading-relaxed">O equilíbrio perfeito entre pureza e frescor.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-medium text-apple-black">R$ 55,00</span>
+                        <div class="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-rosegold group-hover:border-rosegold transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300 group-hover:text-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-32 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start">
+            <div class="mb-16 md:mb-0">
+                <h2 class="text-4xl font-bold text-rosegold mb-8">Glow & Care.</h2>
+                <p class="text-apple-gray max-w-xs font-light leading-relaxed mb-12">Redefinindo os padrões de beleza através da pureza e do design.</p>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-apple-black hover:text-rosegold transition"><span class="text-[10px] font-bold tracking-widest uppercase">Instagram</span></a>
+                    <a href="#" class="text-apple-black hover:text-rosegold transition"><span class="text-[10px] font-bold tracking-widest uppercase">Pinterest</span></a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-widest uppercase mb-8 text-apple-gray">Shop</h4>
+                    <ul class="space-y-4 text-sm font-light text-apple-black">
+                        <li><a href="#" class="hover:text-rosegold transition">Sérums</a></li>
+                        <li><a href="#" class="hover:text-rosegold transition">Cremes</a></li>
+                        <li><a href="#" class="hover:text-rosegold transition">Tônicos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-widest uppercase mb-8 text-apple-gray">Suporte</h4>
+                    <ul class="space-y-4 text-sm font-light text-apple-black">
+                        <li><a href="#" class="hover:text-rosegold transition">Envio</a></li>
+                        <li><a href="#" class="hover:text-rosegold transition">Trocas</a></li>
+                        <li><a href="#" class="hover:text-rosegold transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-widest uppercase mb-8 text-apple-gray">Marca</h4>
+                    <ul class="space-y-4 text-sm font-light text-apple-black">
+                        <li><a href="#" class="hover:text-rosegold transition">Nossa História</a></li>
+                        <li><a href="#" class="hover:text-rosegold transition">Carreiras</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-32 pt-8 border-t border-gray-50 flex flex-col sm:flex-row justify-between text-[10px] font-medium text-gray-400 tracking-widest uppercase">
+            <p>&copy; 2026 Glow & Care. Designed for clarity.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-apple-black transition">Privacidade</a>
+                <a href="#" class="hover:text-apple-black transition">Termos</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
